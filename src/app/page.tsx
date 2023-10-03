@@ -13,19 +13,19 @@ export default async function Home() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="flex flex-col items-center text-center">
           
-          <div className="flex items-center">
+          <div className="flex items-center mb-5">
             <h1 className="mr-3 text-5xl font-semibold">Chat with any PDF</h1>
             <UserButton afterSignOutUrl="/"/>
           </div>
-          <div className="flex mt-2">
+          <div className="flex mt-3 mb-5">
             {isAuth && (
               <Button>Go to Chat</Button>
             )}
           </div>
-          <p className="max-w-xl mt-2 text-lg text-slate-600">
+          <p className="max-w-xl mt-5 mb-3 text-lg text-slate-600">
             Join millions of students, researchers, and professionals to instantly answer and understand research with AI
           </p>
-          <div className="w-full mt-4">
+          <div className="w-full mt-5">
             {isAuth 
               ? (
                 <FileUpload />
