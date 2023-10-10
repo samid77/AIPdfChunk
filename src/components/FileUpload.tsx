@@ -14,13 +14,16 @@ const FileUpload = () => {
     onDrop: async (acceptedFiles) => {
         console.log(`acceptedFiles: ${JSON.stringify(acceptedFiles, undefined, 2)}`)
         const file = acceptedFiles[0];
-        if(file.size > 10 * 1024 * 1024) alert(`File size is too big, more than 10MB`);
+        if(file.size > 10 * 1024 * 1024) {
+          alert(`File size is too big, more than 10MB`);
+          return;
+        }
         
         try {
           const data = await uploadToS3(file)
           console.log(`data: ${JSON.stringify(data, undefined, 2)}`)
         } catch (error) {
-          console.error(`uploadtoS3 error ${error}`)
+          console.error(`Upload to S3 Error: ${JSON.stringify(error, undefined, 2)}`)
         }
     },
   });
