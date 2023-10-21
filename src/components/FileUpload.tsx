@@ -42,7 +42,10 @@ const FileUpload = () => {
           }
           mutate(data, {
             onSuccess: (data) => {console.log(`data from mutation: ${JSON.stringify(data, undefined, 2)}`)},
-            onError: (err) => {console.error(`error on mutation`)}
+            onError: (err) => {
+              toast.error('Error on creating the chat')
+              console.error('Error on creating the chat')
+            }
           });
 
         } catch (error) {

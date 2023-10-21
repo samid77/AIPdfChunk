@@ -5,6 +5,8 @@ import { NextResponse } from "next/server"
         
         const body = await req.json();
         const [file_key, file_name] = body();
+        console.log(`File Key: ${file_key}`)
+        console.log(`File Name: ${file_name}`)
 
     } catch (error) {
         console.error(`Error in create-chat POST endpoint: ${JSON.stringify(error, undefined, 2)}`)
