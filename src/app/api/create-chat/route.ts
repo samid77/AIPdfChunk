@@ -4,12 +4,15 @@ import { NextResponse } from "next/server"
     try {
         
         const body = await req.json();
-        const [file_key, file_name] = body();
+        const {file_key, file_name} = body;
         console.log(`File Key: ${file_key}`)
         console.log(`File Name: ${file_name}`)
-
+        return NextResponse.json(
+            {message: 'Upload Success from route.ts'},
+            {status: 200}
+        )
     } catch (error) {
-        console.error(`Error in create-chat POST endpoint: ${JSON.stringify(error, undefined, 2)}`)
+        console.log(`Error in create-chat POST endpoint: ${JSON.stringify(error, undefined, 2)}`)
         return NextResponse.json(
             {error: 'Internal Server Error - create-chat POST endpoint'},
             {status: 500},
